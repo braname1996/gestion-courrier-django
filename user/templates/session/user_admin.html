@@ -1,0 +1,407 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid mt-1">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow mb-5">
+                <div class="card-header py-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="{% url 'enregistreur' %}" class="btn btn-primary">BESC/ECTN</a>
+                            <a href="{% url 'conteneur' %} " class="btn btn-primary">Conteneur/Container</a>
+                            <a href="{% url 'note' %}" class="btn btn-primary">Note</a>
+                        </div>
+                    </div>
+                </div>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="card-body">
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <fieldset class="border p-2">
+                                    <legend class="w-auto">BESC/ECTN</legend>
+                                    <div class="row">
+                                        <div class="form-group col-6">
+                                            <label for=""
+                                                class=" col-form-label col-form-label-sm label1">Chargeur/Shipper</label>
+                                            <input type="text" name="chargeur" class="form-control form-control-sm" id="">
+                                            <input type="text" name="" class="form-control form-control-sm" id="chargeur">
+                                            <input type="text" name="" class="form-control form-control-sm" id="chargeur">
+
+                                            <label for="" class=" col-form-label col-form-label-sm label1">Destinataire
+                                                ou à
+                                                l'ordre de/consignee to oder</label>
+                                            <input type="text" name="destinataire" class="form-control form-control-sm" id="">
+                                            <input type="text" name="" class="form-control form-control-sm" id="chargeur">
+                                            <input type="text" name="" class="form-control form-control-sm" id="chargeur">
+
+                                            <label for="" class=" col-form-label col-form-label-sm label1">A
+                                                notifier/Notify</label>
+                                            <input type="text" name="notifier" class="form-control form-control-sm" id="">
+                                            <input type="text" name="" class="form-control form-control-sm" id="chargeur">
+                                            <input type="text" name="" class="form-control form-control-sm" id="chargeur">
+
+
+                                        </div>
+
+                                        <div class="form-group col-3">
+                                            <label for="" class=" col-form-label col-form-label-sm label1">Police de
+                                                cargaison
+                                                n°/Bill of loading n°</label>
+                                            <input type="text" name="police_de_cargaison" class="form-control form-control-sm" id="">
+
+                                            <label for="" class=" col-form-label col-form-label-sm label1">Date de
+                                                depart/Departurn
+                                                date</label>
+                                            <input type="date" name="date_depart" class="form-control form-control-sm" id="">
+
+                                            <label for=""
+                                                class=" col-form-label col-form-label-sm label1">Transporteur/Carrier</label>
+                                            <input type="text" name="transporteur" class="form-control form-control-sm inputCostum" id="">
+
+                                            <label for=""
+                                                class=" col-form-label col-form-label-sm label1 inputCostum">Transitaire
+                                                a
+                                                l'embarquement/Forwarder</label>
+                                            <input type="text" name="transitaire" class="form-control form-control-sm inputCostum"
+                                                id="chargeur">
+                                            <input type="text" name="" class="form-control form-control-sm inputCostum"
+                                                id="chargeur">
+                                            <input type="text" name="" class="form-control form-control-sm inputCostum"
+                                                id="chargeur">
+
+                                            <label for="" class=" col-form-label col-form-label-sm label1">Arrivée/
+                                                Arrival
+                                                date</label>
+                                            <input type="text" name="date_arrivee" class="form-control form-control-sm inputCostum" id="">
+
+
+                                        </div>
+
+                                        <div class="col-3 text-center" style="background-color: gold; height: 150px;">
+
+                                            <label for=""
+                                                class=" col-form-label col-form-label-sm label1 radio">OPERATION</label><br>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="operation" id="inlineRadio1"
+                                                    value="option1">
+                                                <label class="form-check-label rd" for="inlineRadio1">IMPORT</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="operation" id="inlineRadio2"
+                                                    value="option2">
+                                                <label class="form-check-label rd" for="inlineRadio2">TRANSIT</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="operation" id="inlineRadio2"
+                                                    value="option2">
+                                                <label class="form-check-label rd" for="inlineRadio2">EXPORT</label>
+                                            </div>
+
+                                            <label for=""
+                                                class=" col-form-label col-form-label-sm label1 radio">TARIF-FRAIS</label><br>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="tarif" id="inlineRadio2"
+                                                    value="option2">
+                                                <label class="form-check-label rd"
+                                                    for="inlineRadio2">Europe/Africa</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="tarif" id="inlineRadio2"
+                                                    value="option2">
+                                                <label class="form-check-label rd" for="inlineRadio2">Autre/Oder
+                                                    orig</label>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="container-fluid">
+                                            <hr style="background-color: red; margin-top: -12px;">
+
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <label for=""
+                                                        class=" col-form-label col-form-label-sm label1">Navire et
+                                                        n° de voyage/Vessel and voyage nr</label>
+                                                    <input type="text" name="navire_et_numeroVoyage" class="form-control form-control-sm" id="">
+
+                                                    <label for="" class=" col-form-label col-form-label-sm label1">Port
+                                                        de chargement / Loading port</label>
+                                                    <input type="text" name="port_Chargement" class="form-control form-control-sm" id="">
+
+                                                </div>
+                                                <div class="col-6">
+                                                    <label for=""
+                                                        class=" col-form-label col-form-label-sm label1 inputCostum">Port
+                                                        de déchargement/Discharging port</label>
+                                                    <input type="text" name="port_Dechargement" class="form-control form-control-sm inputCostum"
+                                                        id="">
+
+                                                    <label for=""
+                                                        class=" col-form-label col-form-label-sm label1 inputCostum">Destination
+                                                        finale / Final destination</label>
+                                                    <input type="text" name="estination_finale" class="form-control form-control-sm inputCostum"
+                                                        id="">
+                                                </div>
+                                            </div>
+                                            <hr style="background-color: red;">
+
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <label for=""
+                                                        class=" col-form-label col-form-label-sm label1">Monnaie/Currency</label><br>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="monaie"
+                                                            id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label rd"
+                                                            for="inlineRadio1">USD</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="monaie"
+                                                            id="inlineRadio2" value="option2">
+                                                        <label class="form-check-label rd"
+                                                            for="inlineRadio2">EURO</label>
+                                                    </div>
+                                                </div>
+                                                <hr style="background-color: red;">
+
+                                                <div class="col-6">
+                                                    <div class="form-group row">
+                                                        <label for="" class="col-sm-9 col-form-label label1"
+                                                            style="font-size: 12px;">Cout des
+                                                            articles/ Items Cost</label>
+                                                        <div class="col-sm-3">
+                                                            <input type="number" name="cout_des_articles" class="form-control form-control-sm"
+                                                                id="chargeur">
+                                                        </div>
+
+                                                        <label for="" class="col-sm-9 col-form-label label1"
+                                                            style="font-size: 12px;">Emission du
+                                                            Besc+Marque/Ectn
+                                                            release+stamps dyty</label>
+                                                        <div class="col-sm-3">
+                                                            <input type="number" name="emmision_du_besc" class="form-control form-control-sm"
+                                                                id="chargeur">
+                                                        </div>
+
+                                                        <label for="" class="col-sm-9 col-form-label label1"
+                                                            style="font-size: 12px;">Cout total/
+                                                            total
+                                                            Cost</label>
+                                                        <div class="col-sm-3">
+                                                            <input type="number" name="cout_toal" class="form-control form-control-sm"
+                                                                id="chargeur">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr style="background-color: red; margin-top: -15px;">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <table class="table table-bordered" id="dataTable" width="100%"
+                                                        cellspacing="0">
+
+                                                        <th style="font-size: 10px; color:black" width="20%">
+                                                            Inconterms fret maritime/s/freight <br><br><br>
+                                                            <div class="row">
+                                                                <div class="col-sm-4">
+                                                                    <input type="number" name="" style="width: 60px;"
+                                                                        class="form-control form-control-sm">
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <input type="text" name="" style="width: 60px;"
+                                                                        class="form-control form-control-sm">
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <input type="text" name=""
+                                                                        class="form-control form-control-sm">
+                                                                </div>
+                                                            </div>
+
+                                                        </th>
+                                                        <th style="font-size: 10px; color:black" width="15%">
+                                                            Valeur de marchandise <br>valu of de goods <br><br>
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <input type="text" name="valeur_marchandise" style="width: 60px;"
+                                                                        class="form-control form-control-sm">
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <input type="text" name=""
+                                                                        class="form-control form-control-sm">
+                                                                </div>
+                                                            </div>
+                                                        </th>
+                                                        <th style="font-size: 10px; color:black" width="15%">
+                                                            Cout de l'assurance/ cost of insurance <br><br>
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <input type="text" name="cout_assurance" style="width: 60px;"
+                                                                        class="form-control form-control-sm">
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <input type="text" name=""
+                                                                        class="form-control form-control-sm">
+                                                                </div>
+                                                            </div>
+                                                        </th>
+                                                        <th style="font-size: 10px; color:black" width="15%">
+                                                            Valeur FOB <br>FOB valu <br><br>
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <input type="text" name="valeur_Fob" style="width: 60px;"
+                                                                        class="form-control form-control-sm">
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <input type="text" name=""
+                                                                        class="form-control form-control-sm">
+                                                                </div>
+                                                            </div>
+                                                        </th>
+                                                        <th style="font-size: 10px; color:black" width="15%">
+                                                            Autre / others <br><br><br>
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <input type="text" name="autre_valeur" style="width: 60px;"
+                                                                        class="form-control form-control-sm">
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <input type="text" name=""
+                                                                        class="form-control form-control-sm">
+                                                                </div>
+                                                            </div>
+                                                        </th>
+                                                        <th style="font-size: 10px; color:black" width="15%">
+                                                            HS code
+                                                            <div class="row">
+                                                                <div class="col-sm-10">
+                                                                    <textarea name="" id="" cols="15"
+                                                                        rows="4"></textarea>
+                                                                </div>
+
+                                                            </div>
+                                                        </th>
+                                                        <th style="font-size: 10px; color:black" width="10%">
+                                                            Fret / Freight <br><br><br>
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    <div class="form-check form-check-inline">
+                                                                        <input class="form-check-input" type="radio"
+                                                                            name="d5" id="inlineRadio1" value="option1">
+                                                                        <label class="form-check-label rd"
+                                                                            for="inlineRadio1">Prepaid</label>
+                                                                    </div>
+                                                                </div>
+                                                        </th>
+
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <fieldset class="border p-2">
+                                    <legend class="w-auto">Conteneur/Container</legend>
+
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <label for="">Conteneur nombre <br> Container number</label>
+                                                </div>
+                                                <div class="col-5">
+                                                    <label for="">marchandise <br> Commodity</label>
+                                                </div>
+                                                <div class="col-3">
+                                                    <label for="">Conteneur <br> Conteneur type</label>
+                                                </div>
+                                                <div class="col-2">
+                                                    <label for="">Dimension</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <input type="text" name="" class="form-control form-control-sm"
+                                                        id="chargeur">
+                                                </div>
+                                                <div class="col-5">
+                                                    <input type="text" name="" style="height: 100%;"
+                                                        class="form-control form-control-sm" id="chargeur">
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="conteneurType" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label rd"
+                                                            for="inlineRadio1">Sec-dry</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="conteneurType" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label rd"
+                                                            for="inlineRadio1">Autre-Other</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="conteneurType" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label rd"
+                                                            for="inlineRadio1">Frigo-Reefer</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="conteneurDimension" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label rd" for="inlineRadio1">20</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="conteneurDimension" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label rd" for="inlineRadio1">40</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <fieldset class="border p-2">
+                                    <legend class="w-auto">Note</legend>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-12">
+                                <input type="submit" value="Enregistrer / valider les information"
+                                    class="btn btn-primary btn-block">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

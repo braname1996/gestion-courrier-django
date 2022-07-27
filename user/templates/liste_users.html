@@ -240,9 +240,19 @@
                                 {% if obj.status%}
                                 <a class="btn-sm btn btn-danger" href="{% url 'bloquer-user' obj.pk %}"
                                     title="si vous cliquer sur ce bouton l'utilisateur ne sera plus actif donc ne poura plus se connecter">Desactiver</a>
+
+                                <a class="btn-sm btn btn-primary" href="{% url 'update-user' obj.pk %}"
+                                    title="si vous cliquer sur ce bouton l'utilisateur ne sera plus actif donc ne poura plus se connecter">Editer
+                                    <i class="fas fa-edit"></i></a>
+
                                 {% else %}
                                 <a class="btn-sm btn btn-success" style="width: 80px;"
                                     href="{% url 'activer-user' obj.id %}" title="Activer l'utilisateur">Activer</a>
+
+                                <a class="btn-sm btn btn-primary" href="{% url 'update-user' obj.pk %}"
+                                    title="si vous cliquer sur ce bouton l'utilisateur ne sera plus actif donc ne poura plus se connecter">Editer
+                                    <i class="fas fa-edit"></i></a>
+
                                 {% endif %}
                             </td>
                         </tr>

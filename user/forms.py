@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models import fields
-from .models import User
+from .models import Courrier, User
 from django import forms
 from django.forms import ModelForm, widgets
 
@@ -30,3 +30,31 @@ class Compte_user(ModelForm):
             'password':forms.PasswordInput(attrs={'class':'form-control'}),
            
         }
+class Form_courrier(ModelForm):
+    class Meta:
+        model = Courrier
+        fields = [
+            'chargeur',
+            'destinataire',
+            'notifier',
+            'police_de_cargaison',
+            'date_depart',
+            'date_arrivee',
+            'transporteur',
+            'transitaire',
+            'operation',
+            'tarif',
+            'navire_et_numeroVoyage',
+            'port_Chargement',
+            'port_Dechargement',
+            'estination_finale',
+            'monaie',
+            'cout_des_articles',
+            'emmision_du_besc',
+            'cout_toal',
+            'valeur_marchandise',
+            'cout_assurance',
+            'valeur_Fob',
+            'autre_valeur',
+            
+        ]

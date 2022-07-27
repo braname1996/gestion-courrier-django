@@ -8,6 +8,7 @@ from django.core.paginator import Paginator
 
 
 
+
 def index(request):
     return render(request,'index.html')
 
@@ -104,3 +105,76 @@ def activer_user(request,id):
     user.status = True
     user.save()
     return redirect('liste-user')
+
+def update_user(request, id):
+    user = User.objects.get(id=id)
+    
+    if request.method == "GET":
+        form = Compte_user(request.GET,instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('liste-user')
+        else:
+            form = Compte_user(instance=user)
+    return render(request, 'update_user.html',{"form":form})
+
+def enregistrement(request):
+    if request.method == "POST":
+        chargeur = request.POST['chargeur']
+        destinataire = request.POST['destinataire']
+        notifier = request.POST['notifier']
+        police_de_cargaison = request.POST['police_de_cargaison']
+        date_depart = request.POST['date_depart']
+        date_arrivee = request.POST['date_arrivee']
+        transporteur = request.POST['transporteur']
+        transitaire = request.POST['transitaire']
+        operation = request.POST['operation']
+        tarif = request.POST['tarif']
+        navire_et_numeroVoyage = request.POST['navire_et_numeroVoyage']
+        port_Chargement = request.POST['port_Chargement']
+        port_Dechargement = request.POST['port_Dechargement']
+        estination_finale = request.POST['estination_finale']
+        monaie = request.POST['monaie']
+        cout_des_articles = request.POST['cout_des_articles']
+        emmision_du_besc = request.POST['emmision_du_besc']
+        cout_toal = request.POST['cout_toal']
+        valeur_marchandise = request.POST['valeur_marchandise']
+        cout_assurance = request.POST['cout_assurance']
+        valeur_Fob = request.POST['valeur_Fob']
+        autre_valeur = request.POST['autre_valeur']
+
+        c = Courrier.objects.create(
+            chargeur = chargeur,
+            destinataire = destinataire,
+            notifier = notifier,
+            police_de_cargaison = police_de_cargaison,
+            date_depart = date_depart,
+            date_arrivee = date_arrivee,
+            transporteur = transporteur,
+            transitaire = transitaire,
+            operation = operation,
+            tarif = tarif,
+            navire_et_numeroVoyage = navire_et_numeroVoyage,
+            port_Chargement = port_Chargement,
+            port_Dechargement = port_Dechargement,
+            estination_finale = estination_finale,
+            monaie = monaie,
+            cout_des_articles = cout_des_articles,
+            emmision_du_besc = emmision_du_besc,
+            cout_toal = cout_toal,
+            valeur_marchandise = valeur_marchandise,
+            cout_assurance = cout_assurance,
+            valeur_Fob = valeur_Fob,
+            autre_valeur = autre_valeur
+        )
+        if c :
+            return redirect('liste-user')
+        else:
+            render(request,"session/user_admin.html")
+    return render(request,"session/user_admin.html")
+
+def conteneur(request):
+    return render(request,"session/conteneur_user_admin.html")
+
+def note(request):
+    return render(request,"session/note_user_admin.html")
